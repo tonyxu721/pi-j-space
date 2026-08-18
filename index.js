@@ -25,7 +25,26 @@ import { fileURLToPath } from "node:url";
 const EXT_DIR = dirname(fileURLToPath(import.meta.url));
 const PKG_SKILL_DIR = join(EXT_DIR, "skills", "j-space"); // inside this package
 const LOCAL_FALLBACK = join(homedir(), ".agents", "skills", "suites", "j-space");
-const AGENT_DIR = join(homedir(), ".pi", "agent", "j-space"); // writable runtime state
+// Resolve the writable runtime state dir for BOTH Pi and Prime Agent:
+//   1. JSPACE_STATE_DIR  — explicit override (new; any directory)
+//   2. PRIME_AGENT_CODING_AGENT_DIR — Prime Agent config dir (override / kernel env)
+//   3. PI_CODING_AGENT_DIR — Pi config dir
+//   4. existence fallback — prefer ~/.prime/agent, else ~/.pi/agent
+// (matches the ecosystem pattern used by rlm/websearch; pure-Pi and pure-Prime
+//  machines each pick their own dir, dual-install machines prefer Prime Agent)
+function agentStateDir() {
+  if (process.env.JSPACE_STATE_DIR) return process.env.JSPACE_STATE_DIR;
+  const fromEnv =
+    process.env.PRIME_AGENT_CODING_AGENT_DIR ||
+    process.env.PI_CODING_AGENT_DIR;
+  if (fromEnv) return fromEnv;
+  const candidate = [
+    join(homedir(), ".prime", "agent"),
+    join(homedir(), ".pi", "agent"),
+  ].find((p) => existsSync(p));
+  return candidate || join(homedir(), ".prime", "agent");
+}
+const AGENT_DIR = join(agentStateDir(), "j-space"); // writable runtime state
 const STATE_FILE = join(AGENT_DIR, "state.json");
 const MARKER = "[[J-SPACE-ACTIVE]]";
 
