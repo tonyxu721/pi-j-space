@@ -1,6 +1,6 @@
 {
   "name": "@tony0721/pi-j-space",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "J-Space Cognition Suite for Pi — inference-time cognitive control layer for deep reasoning, long-horizon work, tool use, verification, and recovery. Ships the j-space skill plus a per-turn forcing extension.",
   "type": "module",
   "publishConfig": {
