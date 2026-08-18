@@ -6,12 +6,12 @@ The **J-Space Cognition Suite** packaged for [Pi](https://pi.dev) as an official
 
 > J-Space is an inference-time cognitive control layer built on the accessible representational space the model is *poised to say*. It manages what stays active, preserves constraints across long tasks, externalizes durable state, detects reasoning failure, and returns verified results in clean language. No weight changes, no fine-tuning, no hidden service.
 
-The full research suite lives at [J-Space-Cognition-Suite-V3.6](https://github.com/Tiger3807861189/J-Space-Cognition-Suite-V3.6) (README, benchmarks, citation, license).
+> The package is published on npm as **`pi-j-space`** (`npm:pi-j-space`). The full research suite lives at [J-Space-Cognition-Suite-V3.6](https://github.com/Tiger3807861189/J-Space-Cognition-Suite-V3.6) (README, benchmarks, citation, license).
 
 ## Install
 
 ```bash
-pi install npm:j-space
+pi install npm:pi-j-space
 ```
 
 Restart Pi after installation. The package registers:
