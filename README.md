@@ -45,14 +45,15 @@ Commands must start with `/` (Pi command prefix):
 /jspace compact|full|reminder   Switch injection mode
 ```
 
-Runtime state persists in `~/.pi/agent/j-space/state.json`.
+Runtime state persists in `<agent dir>/j-space/state.json` — `~/.pi/agent/` under Pi, `~/.prime/agent/` under Prime Agent (auto-detected; override with `JSPACE_STATE_DIR`).
 
 ## Configuration
 
 | Env var | Purpose |
 |---|---|
 | `JSPACE_SKILL_PATH` | Override the skill `SKILL.md` path (default: the copy inside this package) |
-| `JSPACE_DEBUG=1` | Write an `inject.log` under `~/.pi/agent/j-space/` |
+| `JSPACE_STATE_DIR` | Override the runtime state dir (default: auto-detected `<agent dir>/j-space`, Pi → `~/.pi/agent`, Prime Agent → `~/.prime/agent`) |
+| `JSPACE_DEBUG=1` | Write an `inject.log` under the runtime state dir |
 
 ## Development
 
