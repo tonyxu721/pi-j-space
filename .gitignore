@@ -1,0 +1,4 @@
+node_modules/
+inject.log
+*.tgz
+state.json

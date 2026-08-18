@@ -1,0 +1,39 @@
+{
+  "name": "j-space",
+  "version": "1.0.0",
+  "description": "J-Space Cognition Suite for Pi — inference-time cognitive control layer for deep reasoning, long-horizon work, tool use, verification, and recovery. Ships the j-space skill plus a per-turn forcing extension.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "j-space",
+    "cognition",
+    "reasoning",
+    "deep-reasoning",
+    "inference-time",
+    "verification",
+    "extension",
+    "skill"
+  ],
+  "files": [
+    "index.js",
+    "skills/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonyxu721/pi-j-space.git"
+  },
+  "homepage": "https://github.com/tonyxu721/pi-j-space#readme",
+  "bugs": {
+    "url": "https://github.com/tonyxu721/pi-j-space/issues"
+  },
+  "pi": {
+    "extensions": [
+      "./index.js"
+    ],
+    "skills": [
+      "./skills"
+    ]
+  }
+}
